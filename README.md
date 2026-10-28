@@ -50,37 +50,50 @@ ionic capacitor add android
 ionic capacitor open android
 ```
 
-## Evidencia
+## Evidencias de la aplicación
 
-Pantalla de Instalación & Splash / Icono
+### Instalación, Splash Screen e Icono
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4a54f632-9dec-4ec0-a564-5cbfbb164400" alt="Evidencia de instalación de UrbanInspect" width="320">
+  <img src="https://github.com/user-attachments/assets/4a54f632-9dec-4ec0-a564-5cbfbb164400" alt="Instalación de UrbanInspect" width="320">
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/89846fcc-5239-4361-9748-7cad7faf35a0" alt="Splash Screen de UrbanInspect" width="280">
-  &nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/20520556-324d-4824-ad85-226f9ee9212d" alt="Icono y pantalla de inicio de UrbanInspect" width="280">
+  <img src="https://github.com/user-attachments/assets/89846fcc-5239-4361-9748-7cad7faf35a0" alt="Pantalla de inicio de UrbanInspect" width="240">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/20520556-324d-4824-ad85-226f9ee9212d" alt="Icono y presentación de UrbanInspect" width="240">
 </p>
 
-Permisos de Geolocalización
+---
+
+### Permisos de geolocalización
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/7f38b17f-2299-4856-9e21-b3dd710a724a" alt="Solicitud de permisos de geolocalización" width="280">
+  <img src="https://github.com/user-attachments/assets/7f38b17f-2299-4856-9e21-b3dd710a724a" alt="Permisos de geolocalización" width="260">
 </p>
 
-Pestañas de Mostrar Incidencias, Ingresar Incidencias, Guardar Incidencias
+---
+
+### Visualización de incidencias
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/9246059b-9a5d-4404-b9cf-20800653c4db" alt="Pantalla de visualización de incidencias" width="280">
+  <img src="https://github.com/user-attachments/assets/9246059b-9a5d-4404-b9cf-20800653c4db" alt="Listado de incidencias urbanas" width="280">
 </p>
+
+---
+
+### Registro de incidencias
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4d6550f9-2855-47ef-b9be-8818f198971b" alt="Formulario de registro de incidencias" width="280">
 </p>
 
+---
+
+### Seguimiento de incidencias
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cf97fde1-f931-4deb-b078-5b3a07d25a6a" alt="Pantalla de seguimiento de incidencias" width="280">
+  <img src="https://github.com/user-attachments/assets/cf97fde1-f931-4deb-b078-5b3a07d25a6a" alt="Listado de incidencias en seguimiento" width="280">
 </p>
 
+---
