@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>En Seguimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="trackedIncidents.length === 0" class="ion-text-center">
+    <p>No tienes incidencias marcadas para seguimiento local.</p>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of trackedIncidents" lines="full">
+      
+      <!-- Usamos ion-thumbnail para evidencia cuadrada -->
+      <ion-thumbnail slot="start" *ngIf="item.photoUrl" class="foto-miniatura">
+        <img [src]="item.photoUrl" [alt]="item.type" />
+      </ion-thumbnail>
+
+      <ion-label class="ion-text-wrap">
+        <h2><strong>{{ item.code }}</strong> - {{ item.type }}</h2>
+        <p>{{ item.status }}</p>
+      </ion-label>
+      
+      <ion-button fill="clear" color="danger" slot="end" (click)="desmarcar(item.id!)">
+        <ion-icon name="bookmark"></ion-icon> Desmarcar
+      </ion-button>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

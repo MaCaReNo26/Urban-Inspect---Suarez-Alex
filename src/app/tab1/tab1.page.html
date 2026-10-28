@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Incidencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- R3: Refrescador Manual (Pull to Refresh) -->
+  <ion-refresher slot="fixed" (ionRefresh)="recargarLista($event)">
+    <ion-refresher-content 
+      pullingText="Desliza hacia abajo para actualizar" 
+      refreshingSpinner="circles" 
+      refreshingText="Cargando incidencias...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- R5: Loading inicial -->
+  <div *ngIf="isLoading && incidents.length === 0" class="ion-text-center ion-padding">
+    <ion-spinner></ion-spinner>
+    <p>Cargando registros...</p>
+  </div>
+
+  <div *ngIf="hasError && incidents.length === 0" class="ion-text-center ion-padding">
+    <p>Error al conectar con la oficina.</p>
+    <ion-button (click)="loadIncidents()">Reintentar</ion-button>
+  </div>
+
+  <div *ngIf="!isLoading && incidents.length === 0 && !hasError" class="ion-text-center ion-padding">
+    <p>No existen incidencias registradas.</p>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of incidents" button (click)="verDetalle(item)" lines="full">
+      
+      <!-- Evidencia Cuadrada -->
+      <ion-thumbnail slot="start" *ngIf="item.photoUrl" class="foto-miniatura">
+        <img [src]="item.photoUrl" [alt]="item.type" />
+      </ion-thumbnail>
+
+      <ion-label class="ion-text-wrap">
+        <h2><strong>{{ item.code }}</strong> - {{ item.type }}</h2>
+        <p>{{ item.address }}</p>
+        <p><ion-text color="medium">{{ item.date | date:'shortDate' }}</ion-text></p>
+      </ion-label>
+      
+      <div slot="end" class="ion-text-right">
+        <ion-badge [color]="item.status === 'Resuelta' ? 'success' : (item.status === 'En Proceso' ? 'warning' : 'danger')" class="ion-margin-bottom">
+          {{ item.status }}
+        </ion-badge>
+        <br>
+        <!-- R1: Botón de Seguimiento Local -->
+        <ion-button fill="clear" (click)="toggleTracking(item.id!, $event)">
+          <ion-icon [name]="isTracked(item.id!) ? 'bookmark' : 'bookmark-outline'" [color]="isTracked(item.id!) ? 'primary' : 'medium'"></ion-icon>
+        </ion-button>
+      </div>
+
+    </ion-item>
+  </ion-list>
+
+  <!-- R3: Carga Progresiva -->
+  <ion-infinite-scroll (ionInfinite)="loadIncidents($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más registros..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

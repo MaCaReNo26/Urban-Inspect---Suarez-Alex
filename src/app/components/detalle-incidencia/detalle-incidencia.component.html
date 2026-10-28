@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ incident.code }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2 class="ion-text-capitalize"><strong>{{ incident.type }}</strong></h2>
+  
+  <p><strong>Descripción:</strong> {{ incident.description }}</p>
+  <p><strong>Dirección:</strong> {{ incident.address }} <span *ngIf="incident.sector">(Sector: {{ incident.sector }})</span></p>
+  <p><strong>Prioridad:</strong> {{ incident.priority }}</p>
+  <p><strong>Fecha de Registro:</strong> {{ incident.date | date:'medium' }}</p>
+
+  <!-- Mostrar coordenadas solo si existen -->
+  <div *ngIf="incident.latitude && incident.longitude">
+    <p><strong>Latitud:</strong> {{ incident.latitude }}</p>
+    <p><strong>Longitud:</strong> {{ incident.longitude }}</p>
+  </div>
+
+  <!-- R6: Fotografía accesible, cuadrada y centrada -->
+  <div *ngIf="incident.photoUrl" class="ion-margin-top ion-margin-bottom">
+    <p><strong>Evidencia:</strong></p>
+    <div class="foto-contenedor">
+      <img [src]="incident.photoUrl" class="foto-cuadrada" />
+    </div>
+  </div>
+
+  <hr class="ion-margin-vertical">
+
+  <!-- R9: Lógica de actualización de estados -->
+  <ion-item *ngIf="incident.status !== 'Resuelta'" lines="none">
+    <ion-select label="Cambiar Estado" labelPlacement="stacked" [(ngModel)]="nuevoEstado">
+      <ion-select-option value="Pendiente" *ngIf="incident.status === 'Pendiente'">Pendiente</ion-select-option>
+      <ion-select-option value="En Proceso">En Proceso</ion-select-option>
+      <ion-select-option value="Resuelta">Resuelta</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="nuevoEstado === 'Resuelta' && incident.status !== 'Resuelta'" lines="none">
+    <ion-textarea label="Observación Requerida *" labelPlacement="stacked" [(ngModel)]="observacion"
+      placeholder="Detalle cómo se resolvió la incidencia..."></ion-textarea>
+  </ion-item>
+
+  <ion-button *ngIf="incident.status !== 'Resuelta' && nuevoEstado !== incident.status" expand="block" color="success"
+    class="ion-margin-top" (click)="actualizarEstado()">
+    Guardar Actualización
+  </ion-button>
+
+  <!-- Mensaje de Resolución Final (Diseño Mejorado) -->
+  <div *ngIf="incident.status === 'Resuelta'" class="ion-padding ion-text-center resolution-card">
+    <h3><strong>Incidencia Resuelta</strong></h3>
+    <p><strong>Observación Final:</strong><br> {{ incident.observation }}</p>
+  </div>
+</ion-content>

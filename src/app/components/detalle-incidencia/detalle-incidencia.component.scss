@@ -1,0 +1,38 @@
+
+.foto-contenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.foto-cuadrada {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--ion-color-medium);
+}
+
+
+.resolution-card {
+  background-color: #1e1e1e;
+  border: 1px solid var(--ion-color-success);
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+
+  h3 {
+    color: var(--ion-color-success);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: var(--ion-color-light);
+    margin: 0;
+  }
+}

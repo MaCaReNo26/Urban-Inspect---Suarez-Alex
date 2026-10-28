@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Nueva Incidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-select label="Tipo de Incidencia *" [(ngModel)]="incidentData.type" (ionChange)="saveDraft()">
+      <ion-select-option value="Luminaria">Luminaria Dañada</ion-select-option>
+      <ion-select-option value="Bache">Bache</ion-select-option>
+      <ion-select-option value="Alcantarilla">Alcantarilla Obstruida</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea label="Descripción *" [(ngModel)]="incidentData.description" (ionChange)="saveDraft()"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Dirección *" [(ngModel)]="incidentData.address" (ionChange)="saveDraft()"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-select label="Prioridad" [(ngModel)]="incidentData.priority" (ionChange)="saveDraft()">
+      <ion-select-option value="Baja">Baja</ion-select-option>
+      <ion-select-option value="Media">Media</ion-select-option>
+      <ion-select-option value="Alta">Alta (Exige foto)</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- GPS y Clima -->
+  <ion-button expand="block" color="secondary" class="ion-margin-top" (click)="getLocation()">
+    <ion-icon slot="start" name="location-outline"></ion-icon>
+    Obtener Ubicación y Clima
+  </ion-button>
+
+  <ion-item *ngIf="incidentData.latitude">
+    <ion-input label="Latitud" type="number" [(ngModel)]="incidentData.latitude"
+      (ionChange)="fetchWeather()"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="incidentData.longitude">
+    <ion-input label="Longitud" type="number" [(ngModel)]="incidentData.longitude"
+      (ionChange)="fetchWeather()"></ion-input>
+  </ion-item>
+
+  <ion-card *ngIf="weather" color="light">
+    <ion-card-content>
+      <h3>Datos Meteorológicos:</h3>
+      <p>Temperatura: {{ weather.temperature }} °C</p>
+      <p>Precipitación (1h): {{ weather.precipitation }} mm</p>
+      <p *ngIf="weatherWarning" style="color: red; font-weight: bold;">{{ weatherWarning }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Evidencia -->
+  <ion-button expand="block" color="tertiary" class="ion-margin-top" (click)="takePhoto()">
+    <ion-icon slot="start" name="camera-outline"></ion-icon>
+    Capturar Fotografía
+  </ion-button>
+
+  <!-- Nueva previsualización cuadrada y centrada -->
+  <div *ngIf="incidentData.photoUrl" class="ion-margin-top ion-margin-bottom">
+    <p class="ion-text-center"><ion-text color="medium">Previsualización de Evidencia</ion-text></p>
+
+    <div class="foto-contenedor">
+      <img [src]="incidentData.photoUrl" class="foto-cuadrada" />
+    </div>
+
+    <div class="ion-text-center">
+      <ion-button fill="outline" color="danger" (click)="incidentData.photoUrl = ''; saveDraft()">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        Descartar Foto
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-button expand="block" color="success" class="ion-margin-top" (click)="submitIncident()">
+    <ion-icon slot="start" name="save-outline"></ion-icon>
+    Guardar Incidencia
+  </ion-button>
+
+</ion-content>

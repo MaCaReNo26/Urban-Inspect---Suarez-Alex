@@ -1,0 +1,82 @@
+// Paleta Roja y Negra
+:root {
+  /** primary (Rojo Principal) **/
+  --ion-color-primary: #d32f2f;
+  --ion-color-primary-rgb: 211, 47, 47;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #ba2929;
+  --ion-color-primary-tint: #d74444;
+
+  /** secondary (Rojo Oscuro para contrastar) **/
+  --ion-color-secondary: #b71c1c;
+  --ion-color-secondary-rgb: 183, 28, 28;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #a11818;
+  --ion-color-secondary-tint: #be3232;
+
+  /** tertiary (Gris Muy Oscuro/Casi Negro) **/
+  --ion-color-tertiary: #212121;
+  --ion-color-tertiary-rgb: 33, 33, 33;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #1d1d1d;
+  --ion-color-tertiary-tint: #373737;
+
+  /** success (Verde mantenido para acciones de guardar correctas) **/
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  /** warning (Amarillo o Naranja para alertas moderadas) **/
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  /** danger (Rojo para errores) **/
+  --ion-color-danger: #eb445a;
+  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cf3c4f;
+  --ion-color-danger-tint: #ed576b;
+
+  /** dark (Negro Absoluto) **/
+  --ion-color-dark: #000000;
+  --ion-color-dark-rgb: 0, 0, 0;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #000000;
+  --ion-color-dark-tint: #1a1a1a;
+  
+  /** medium (Gris para textos secundarios) **/
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  /** light (Blanco Puro para el texto general en fondo negro) **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+  
+  /* Ajuste global del fondo para Modo Oscuro/Rojo */
+  --ion-background-color: #121212; /* Fondo casi negro */
+  --ion-text-color: #ffffff; /* Texto blanco en toda la app */
+  
+  /* Fondo de elementos en listas y tarjetas */
+  --ion-item-background: #1e1e1e;
+  --ion-card-background: #1e1e1e;
+}
